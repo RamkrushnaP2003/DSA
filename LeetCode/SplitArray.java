@@ -1,6 +1,6 @@
 public class SplitArray {
     public static int splitArray(int nums[], int k) {
-        int left=0, right=0, ans=-1;
+        int left=0, right=0;
         for(int i=0; i<nums.length; i++) {
             left = Math.max(left, nums[i]);
             right += nums[i];
@@ -8,7 +8,6 @@ public class SplitArray {
         while (left <= right) {
             int mid = (left + right)/2;
             if(isPossible(nums, k, mid)) {
-                ans = mid;
                 right = mid - 1;
             } else {
                 left = mid + 1;
