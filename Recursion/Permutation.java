@@ -1,10 +1,12 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Permutation {
     // time complexity -> O(n!*n)
     public static void permutation(int nums[]) {
         List<List<Integer>> ans = new ArrayList<>();
-        recursion(nums, new boolean[nums.length], ans, new ArrayList<>());
+        // recursion(nums, new boolean[nums.length], ans, new ArrayList<>());
+        recursion2(nums, 0, new ArrayList<>(), ans);
         System.out.println(ans);
     }
 
@@ -22,6 +24,26 @@ public class Permutation {
                 vis[i] = false;
             }
         }
+    }
+
+    public static void recursion2(int nums[], int idx, List<Integer> per, List<List<Integer>> ans) {
+        if(idx == nums.length) {
+            ans.add(new ArrayList<>(per));
+            return;
+        }
+        for(int i=idx; i<nums.length; i++) {
+            swap(nums, idx, i);
+            per.add(nums[idx]);
+            recursion2(nums, idx+1, per, ans);
+            per.remove(per.size()-1);
+            swap(nums, i, idx);
+        }
+    }
+
+    private static void swap(int nums[], int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 
     public static void main(String[] args) {
