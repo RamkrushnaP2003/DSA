@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Permutation {
     // time complexity -> O(n!*n)
