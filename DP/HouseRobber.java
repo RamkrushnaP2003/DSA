@@ -40,7 +40,7 @@ public class HouseRobber {
     }
 
     public static int maxSumSO(int nums[], int st, int end) {
-        int n=end, prev1=0, prev2=nums[st], curr=0;
+        int prev1=0, prev2=nums[st], curr=0;
         for(int i=st+1; i<end; i++) {
             int pick = nums[i];
             if(i > st+1) pick += prev2;
