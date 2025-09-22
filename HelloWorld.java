@@ -23,7 +23,7 @@ public class HelloWorld {
         return (ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U');
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // Git setup testing
         String s = "IceCreAm";
         System.out.println(reverseVowels(s));
     }
